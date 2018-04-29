@@ -21,5 +21,6 @@ final class ControllerSmokeTest extends WebTestCase
     public function providePathsForSmokeTest()
     {
         yield 'Homepage (route: home)' => ['/'];
+        yield 'Request group listing (route: group_request)' => ['/group/request-listing'];
     }
 }

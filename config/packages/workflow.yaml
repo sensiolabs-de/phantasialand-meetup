@@ -1,0 +1,18 @@
+framework:
+    workflows:
+        # Workflow for handling listing requests
+        group_request:
+            type: workflow
+            marking_store:
+                type: single_state
+                arguments:
+                    - status
+            supports:
+                - App\Entity\GroupRequest
+            places:
+                - open
+                - confirmed
+            transitions:
+                confirm:
+                    from: open
+                    to: confirmed
