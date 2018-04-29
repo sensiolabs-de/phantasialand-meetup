@@ -12,7 +12,15 @@ framework:
             places:
                 - open
                 - confirmed
+                - approved
+                - rejected
             transitions:
                 confirm:
                     from: open
                     to: confirmed
+                approve:
+                    from: confirmed
+                    to: approved
+                reject:
+                    from: confirmed
+                    to: rejected
