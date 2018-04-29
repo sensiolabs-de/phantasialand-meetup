@@ -12,6 +12,7 @@ use Http\Client\Exception;
 use Http\Client\HttpClient;
 use Symfony\Component\Serializer\SerializerInterface;
 use Symfony\Component\Serializer\Exception\ExceptionInterface as SerializerException;
+use function var_dump;
 
 class Client implements ClientInterface
 {

@@ -116,8 +116,8 @@ final class GroupController extends AbstractController
         ]);
     }
 
-    public function listGroups(): Response
+    public function listGroups(Gateway $meetupGateway): Response
     {
-        return $this->render('group/list.html.twig', ['groups' => []]);
+        return $this->render('group/list.html.twig', ['groups' => $meetupGateway->getGroupList()]);
     }
 }

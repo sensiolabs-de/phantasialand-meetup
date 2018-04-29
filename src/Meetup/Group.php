@@ -18,13 +18,13 @@ class Group
     private $created;
     private $city;
     private $country;
-    private $joinMode;
+    private $join_mode;
     private $visibility;
     private $lat;
     private $lon;
     private $members;
     private $who;
-    private $groupPhoto;
+    private $group_photo;
 
     public function getId(): int
     {
@@ -73,7 +73,7 @@ class Group
 
     public function getJoinMode(): string
     {
-        return $this->joinMode;
+        return $this->join_mode;
     }
 
     public function getVisibility(): string
@@ -103,6 +103,6 @@ class Group
 
     public function getGroupPhoto(): string
     {
-        return $this->groupPhoto;
+        return $this->group_photo;
     }
 }

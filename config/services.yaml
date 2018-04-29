@@ -34,7 +34,7 @@ services:
     # PropertyNormalizer is required for mapping API-Response to models
     Symfony\Component\Serializer\Normalizer\PropertyNormalizer: ~
 
-    App\Meetup\ClientInterface: '@App\Meetup\CachedClient'
+    App\Meetup\ClientInterface: '@App\Meetup\Client'
 
     # Whenever a Workflow is requested use our group_request-Workflow
     Symfony\Component\Workflow\Workflow: '@workflow.group_request'

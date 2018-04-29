@@ -12,14 +12,13 @@ class Event
     private $status;
     private $time;
     private $updated;
-    private $utcOffset;
-    private $waitlistCount;
-    private $yesRsvpCount;
+    private $utc_offset;
+    private $waitlist_count;
+    private $yes_rsvp_count;
     private $venue;
     private $group;
     private $link;
     private $description;
-    private $howToFindUs;
     private $visibility;
 
     public function getId(): string
@@ -54,17 +53,17 @@ class Event
 
     public function getUtcOffset(): \DateInterval
     {
-        return $this->utcOffset;
+        return $this->utc_offset;
     }
 
     public function getWaitlistCount(): int
     {
-        return $this->waitlistCount;
+        return $this->waitlist_count;
     }
 
     public function getYesRsvpCount(): int
     {
-        return $this->yesRsvpCount;
+        return $this->yes_rsvp_count;
     }
 
     public function getVenue(): array
@@ -85,11 +84,6 @@ class Event
     public function getDescription(): string
     {
         return $this->description;
-    }
-
-    public function getHowToFindUs(): string
-    {
-        return $this->howToFindUs;
     }
 
     public function getVisibility(): string
