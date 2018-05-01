@@ -1,0 +1,9 @@
+home:
+    path: /
+    defaults:
+        _controller: FrameworkBundle:Template:template
+        template: home.html.twig
+
+app:
+    resource: '@AppBundle/Controller/'
+    type: annotation

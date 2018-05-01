@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+  <h1>Upcoming Meetups</h1>
+  {{ render(controller('AppBundle:Event:list')) }}
+{% endblock %}
+
+{% block sidebar %}
+  <h2>Featured User Groups</h2>
+  {{ render(controller('AppBundle:Group:list')) }}
+{% endblock %}
