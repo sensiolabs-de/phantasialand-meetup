@@ -14,31 +14,43 @@
     "autoload-dev": {
         "psr-4": {
             "Tests\\": "tests/"
-        },
-        "files": [
-            "vendor/symfony/symfony/src/Symfony/Component/VarDumper/Resources/functions/dump.php"
-        ]
+        }
     },
     "require": {
         "php": "^7.1",
-        "doctrine/doctrine-bundle": "^1.6",
-        "doctrine/orm": "^2.5",
         "guzzlehttp/psr7": "^1.4",
         "incenteev/composer-parameter-handler": "^2.0",
         "php-http/curl-client": "^1.7",
         "php-http/httplug-bundle": "^1.7",
         "sensio/distribution-bundle": "^5.0.19",
         "sensio/framework-extra-bundle": "^3.0.2",
+        "symfony/asset": "^3",
         "symfony/flex": "^1.0",
+        "symfony/form": "^3",
+        "symfony/lts": "^3",
         "symfony/monolog-bundle": "^3.1.0",
+        "symfony/orm-pack": "^1.0",
         "symfony/polyfill-apcu": "^1.0",
+        "symfony/security-bundle": "^3",
+        "symfony/serializer": "^3",
         "symfony/swiftmailer-bundle": "^2.3.10",
-        "symfony/symfony": "3.4.*",
+        "symfony/templating": "^3",
+        "symfony/translation": "^3",
+        "symfony/twig-bundle": "^3",
+        "symfony/validator": "^3",
+        "symfony/workflow": "^3",
         "twig/twig": "^1.0||^2.0"
     },
     "require-dev": {
         "sensio/generator-bundle": "^3.0",
-        "symfony/phpunit-bridge": "^3.0"
+        "symfony/debug-bundle": "^3",
+        "symfony/dotenv": "^3",
+        "symfony/phpunit-bridge": "^3.0",
+        "symfony/web-profiler-bundle": "^3",
+        "symfony/web-server-bundle": "^3"
+    },
+    "conflict": {
+        "symfony/symfony": "*"
     },
     "scripts": {
         "symfony-scripts": [
@@ -54,7 +66,12 @@
         ],
         "post-update-cmd": [
             "@symfony-scripts"
-        ]
+        ],
+        "auto-scripts": {
+            "cache:clear": "symfony-cmd",
+            "assets:install --symlink --relative %PUBLIC_DIR%": "symfony-cmd",
+            "security-checker security:check": "script"
+        }
     },
     "config": {
         "sort-packages": true
