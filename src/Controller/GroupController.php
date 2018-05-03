@@ -20,7 +20,6 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\ServiceUnavailableHttpException;
 use Symfony\Component\Workflow\Exception\LogicException;
 use Symfony\Component\Workflow\Workflow;
-use function var_dump;
 
 /**
  * @Route("/group", name="group_")

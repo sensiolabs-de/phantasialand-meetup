@@ -35,7 +35,6 @@ services:
     Symfony\Component\Serializer\Normalizer\PropertyNormalizer: ~
 
     App\Meetup\ClientInterface: '@App\Meetup\CachedClient'
-
     App\Meetup\CachedClient:
         decorates: App\Meetup\Client
         arguments:

@@ -3,16 +3,14 @@
 namespace App\Command;
 
 use App\Entity\GroupRequest;
-use Doctrine\Common\Persistence\ObjectManager;
-use Doctrine\Common\Persistence\ObjectRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
-use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
+use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 use Symfony\Component\Workflow\Workflow;
 
-class GroupRequestCommand extends ContainerAwareCommand
+class GroupRequestCommand extends Command
 {
     /**
      * @var SymfonyStyle
