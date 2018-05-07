@@ -48,11 +48,3 @@ services:
         tags:
             - name: validator.constraint_validator
         public: false
-
-    property_normalizer:
-        class: Symfony\Component\Serializer\Normalizer\PropertyNormalizer
-        arguments:
-            - ~
-            - '@serializer.name_converter.camel_case_to_snake_case'
-        tags:
-            - name: serializer.normalizer
