@@ -2,7 +2,7 @@
 
 declare(strict_types = 1);
 
-namespace AppBundle\Meetup;
+namespace App\Meetup;
 
 class TalkProposal
 {

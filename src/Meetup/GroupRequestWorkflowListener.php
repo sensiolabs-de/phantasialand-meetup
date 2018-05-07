@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace AppBundle\Meetup;
+namespace App\Meetup;
 
 use Symfony\Component\Workflow\Event\Event as WorkflowEvent;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;

@@ -2,9 +2,9 @@
 
 declare(strict_types = 1);
 
-namespace AppBundle\Command;
+namespace App\Command;
 
-use AppBundle\Entity\GroupRequest;
+use App\Entity\GroupRequest;
 use Doctrine\Common\Persistence\ObjectManager;
 use Doctrine\Common\Persistence\ObjectRepository;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;

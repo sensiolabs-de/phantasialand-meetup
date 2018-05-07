@@ -2,10 +2,10 @@
 
 declare(strict_types = 1);
 
-namespace AppBundle\Meetup;
+namespace App\Meetup;
 
-use AppBundle\Entity\GroupRequest;
-use AppBundle\Meetup\Exception\MailerException;
+use App\Entity\GroupRequest;
+use App\Meetup\Exception\MailerException;
 use Twig\Environment;
 use Twig\Error\Error;
 

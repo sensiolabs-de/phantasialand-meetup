@@ -2,10 +2,10 @@
 
 declare(strict_types = 1);
 
-namespace AppBundle\Validation;
+namespace App\Validation;
 
-use AppBundle\Meetup\ClientInterface;
-use AppBundle\Meetup\Exception\MeetupException;
+use App\Meetup\ClientInterface;
+use App\Meetup\Exception\MeetupException;
 use Symfony\Component\Validator\Constraint;
 use Symfony\Component\Validator\ConstraintValidator;
 use Symfony\Component\Validator\Exception\UnexpectedTypeException;

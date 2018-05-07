@@ -2,11 +2,11 @@
 
 declare(strict_types = 1);
 
-namespace AppBundle\Meetup;
+namespace App\Meetup;
 
-use AppBundle\Meetup\Exception\ClientRequestException;
-use AppBundle\Meetup\Exception\ClientResponseException;
-use AppBundle\Meetup\Exception\ClientResponseFormatException;
+use App\Meetup\Exception\ClientRequestException;
+use App\Meetup\Exception\ClientResponseException;
+use App\Meetup\Exception\ClientResponseFormatException;
 use GuzzleHttp\Psr7\Request;
 use Http\Client\Exception;
 use Http\Client\HttpClient;

@@ -2,13 +2,13 @@
 
 declare(strict_types = 1);
 
-namespace AppBundle\Controller;
+namespace App\Controller;
 
-use AppBundle\Entity\GroupRequest;
-use AppBundle\Form\GroupRequestType;
-use AppBundle\Form\TalkProposalType;
-use AppBundle\Meetup\Exception\MailerException;
-use AppBundle\Meetup\Exception\MeetupException;
+use App\Entity\GroupRequest;
+use App\Form\GroupRequestType;
+use App\Form\TalkProposalType;
+use App\Meetup\Exception\MailerException;
+use App\Meetup\Exception\MeetupException;
 use Doctrine\DBAL\DBALException;
 use Doctrine\DBAL\Driver\PDOException;
 use Doctrine\ORM\ORMException;

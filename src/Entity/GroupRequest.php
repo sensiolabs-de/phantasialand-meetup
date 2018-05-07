@@ -2,9 +2,9 @@
 
 declare(strict_types = 1);
 
-namespace AppBundle\Entity;
+namespace App\Entity;
 
-use AppBundle\Validation\MeetupGroup;
+use App\Validation\MeetupGroup;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Validator\Constraints as Assert;

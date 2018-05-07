@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\Meetup;
+namespace App\Meetup;
 
 interface ClientInterface
 {

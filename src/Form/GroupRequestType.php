@@ -2,9 +2,9 @@
 
 declare(strict_types = 1);
 
-namespace AppBundle\Form;
+namespace App\Form;
 
-use AppBundle\Entity\GroupRequest;
+use App\Entity\GroupRequest;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\FormBuilderInterface;

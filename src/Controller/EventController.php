@@ -2,10 +2,10 @@
 
 declare(strict_types = 1);
 
-namespace AppBundle\Controller;
+namespace App\Controller;
 
-use AppBundle\Entity\GroupRequest;
-use AppBundle\Meetup\Exception\GatewayException;
+use App\Entity\GroupRequest;
+use App\Meetup\Exception\GatewayException;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\ServiceUnavailableHttpException;

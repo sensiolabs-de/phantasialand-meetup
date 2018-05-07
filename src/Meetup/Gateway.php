@@ -2,11 +2,11 @@
 
 declare(strict_types = 1);
 
-namespace AppBundle\Meetup;
+namespace App\Meetup;
 
-use AppBundle\Entity\GroupRequest;
-use AppBundle\Meetup\Exception\GatewayException;
-use AppBundle\Meetup\Exception\MeetupException;
+use App\Entity\GroupRequest;
+use App\Meetup\Exception\GatewayException;
+use App\Meetup\Exception\MeetupException;
 use Doctrine\Common\Persistence\ObjectManager;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
