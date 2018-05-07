@@ -9,9 +9,12 @@ use App\Form\GroupRequestType;
 use App\Form\TalkProposalType;
 use App\Meetup\Exception\MailerException;
 use App\Meetup\Exception\MeetupException;
+use App\Meetup\Gateway;
+use App\Meetup\Mailer;
 use Doctrine\DBAL\DBALException;
 use Doctrine\DBAL\Driver\PDOException;
 use Doctrine\ORM\ORMException;
+use Psr\Log\LoggerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -25,7 +28,7 @@ class GroupController extends Controller
     /**
      * @Route("/group-request/", name="group_request")
      */
-    public function requestAction(Request $request): Response
+    public function requestAction(Mailer $mailer, LoggerInterface $logger, Request $request): Response
     {
         $form = $this->createForm(GroupRequestType::class);
         $form->handleRequest($request);
@@ -34,7 +37,7 @@ class GroupController extends Controller
             $em = $this->getDoctrine()->getManager();
             $groupRequest = $form->getData();
             try {
-                $this->get('app.mailer')->sendConfirmation($groupRequest);
+                $mailer->sendConfirmation($groupRequest);
                 $em->persist($groupRequest);
                 $em->flush();
 
@@ -42,7 +45,7 @@ class GroupController extends Controller
 
                 return $this->redirectToRoute('home');
             } catch (MailerException|PDOException|ORMException|DBALException $exception) {
-                $this->get('logger')->error('Group request could not be persisted', ['exception' => $exception]);
+                $logger->error('Group request could not be persisted', ['exception' => $exception]);
                 $this->addFlash('danger', 'Error occurred');
             }
         }
@@ -73,6 +76,8 @@ class GroupController extends Controller
      * @Route("/{urlname}/talk-proposal", name="group_proposal")
      */
     public function proposalAction(
+        Mailer $mailer,
+        LoggerInterface $logger,
         Request $request,
         GroupRequest $groupRequest
     ): Response {
@@ -81,12 +86,12 @@ class GroupController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
             try {
-                $this->get('app.mailer')->sendProposal($form->getData(), $groupRequest);
+                $mailer->sendProposal($form->getData(), $groupRequest);
                 $this->addFlash('success', 'Talk proposal submitted');
 
                 return $this->redirectToRoute('group', ['urlname' => $groupRequest->getUrlname()]);
             } catch (MailerException $exception) {
-                $this->get('logger')->error('Talk proposal could not be sent', ['exception' => $exception]);
+                $logger->error('Talk proposal could not be sent', ['exception' => $exception]);
                 $this->addFlash('danger', 'Error occurred');
             }
         }
@@ -99,14 +104,14 @@ class GroupController extends Controller
     /**
      * @Route("/{urlname}", name="group")
      */
-    public function showAction(GroupRequest $groupRequest): Response
+    public function showAction(Gateway $gateway, GroupRequest $groupRequest): Response
     {
         if (!$groupRequest->isApproved()) {
             throw $this->createNotFoundException(sprintf('Group "%s" not approved.', $groupRequest->getUrlname()));
         }
 
         try {
-            $group = $this->get('app.gateway')->getGroup($groupRequest->getUrlname());
+            $group = $gateway->getGroup($groupRequest->getUrlname());
         } catch (MeetupException $exception) {
             throw new ServiceUnavailableHttpException(60, 'Group could not be loaded', $exception);
         }
@@ -116,10 +121,10 @@ class GroupController extends Controller
         ]);
     }
 
-    public function listAction(): Response
+    public function listAction(Gateway $gateway): Response
     {
         return $this->render('group/list.html.twig', [
-            'groups' => $this->container->get('app.gateway')->getGroupList()
+            'groups' => $gateway->getGroupList()
         ]);
     }
 }
