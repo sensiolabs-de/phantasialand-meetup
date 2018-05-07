@@ -8,7 +8,7 @@
 
 {% block additional_content %}
     <h2>Upcoming Meetups</h2>
-    {{ render(controller('AppBundle:Event:list', {'urlname': group.urlname})) }}
+    {{ render(controller('App\\Controller\\EventController:listAction', {'urlname': group.urlname})) }}
 {% endblock %}
 
 {% block sidebar %}
