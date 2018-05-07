@@ -8,7 +8,6 @@
             "AppBundle\\": "src/AppBundle"
         },
         "classmap": [
-            "app/AppKernel.php",
             "app/AppCache.php"
         ]
     },
